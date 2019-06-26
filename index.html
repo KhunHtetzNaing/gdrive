@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<iframe id="my_iframe" style="display:none;"></iframe>
+
+<script>
+function gDownload(id) {
+    document.getElementById('my_iframe').src = 'https://drive.google.com/uc?export=download&id=' + id;
+};
+
+function getId() {
+    var url = new URL(window.location.href);
+    return url.searchParams.get("url").match(/[-\w]{25,}/)[0];
+}
+
+var ogay = getId();
+if (ogay != null && ogay.length > 20) {
+    gDownload(ogay);
+}
+</script>
+</html>
